@@ -1,0 +1,21 @@
+{
+  "name": "employer-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "setup": "npm install && npm install --prefix backend && npm install --prefix frontend",
+    "db:up": "docker compose -f docker-compose.dev.yml --env-file .env up -d",
+    "db:down": "docker compose -f docker-compose.dev.yml --env-file .env down",
+    "db:check": "npm run check --prefix backend",
+    "db:reset": "docker compose -f docker-compose.dev.yml --env-file .env down -v && npm run db:up",
+    "backend": "npm run dev --prefix backend",
+    "frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently -n api,web -c blue,green \"npm:backend\" \"npm:frontend\"",
+    "test": "npm test --prefix frontend",
+    "test:api": "pytest -m \"not ui\"",
+    "test:ui": "pytest -m ui"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

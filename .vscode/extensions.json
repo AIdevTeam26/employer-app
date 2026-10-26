@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "ms-python.python",
+    "vitest.explorer",
+    "ms-azuretools.vscode-docker",
+    "cweijan.vscode-postgresql-client2",
+    "GrapeCity.gc-excelviewer"
+  ]
+}

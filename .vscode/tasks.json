@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "DB: start",  "type": "shell", "command": "npm run db:up" },
+    { "label": "DB: check",  "type": "shell", "command": "npm run db:check" },
+    { "label": "App: dev (API + React)", "type": "shell", "command": "npm run dev", "isBackground": true },
+    { "label": "Frontend unit tests (Vitest)", "type": "shell", "command": "npm test", "group": "test" },
+    { "label": "Upload tests: API (pytest)", "type": "shell", "command": "pytest -m \"not ui\"", "group": "test" },
+    { "label": "Upload tests: browser (pytest, visible)", "type": "shell", "command": "pytest -m ui --headed --slowmo 300", "group": "test" },
+    { "label": "Rebuild Excel test workbook", "type": "shell", "command": "python tests/build_test_workbook.py" }
+  ]
+}
